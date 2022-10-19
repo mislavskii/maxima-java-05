@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class DynamicPage {
 
@@ -24,7 +25,15 @@ public class DynamicPage {
         Map root = new HashMap<>();
         root.put("title", "Данные кота");
 
-        Cat cat = new Cat("Мурзик", 6, true);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Имя кота: ");
+        String catName = scanner.nextLine();
+        System.out.print("Его вес: ");
+        int catWeight = scanner.nextInt();
+        System.out.print("Сердитый (1) или дружелюбный (0)? ");
+        boolean angry = scanner.nextInt() != 0;
+
+        Cat cat = new Cat(catName, catWeight, angry);
 
         root.put("cat", cat);
 
