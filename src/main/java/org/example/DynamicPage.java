@@ -16,7 +16,7 @@ public class DynamicPage {
 
         FileWriter writer = new FileWriter(filename, false);
 
-        String templatesPath = "templates";
+        String templatesPath = App.class.getClassLoader().getResource("templates").getPath();
         Configuration config = new Configuration(Configuration.VERSION_2_3_31);
         config.setDirectoryForTemplateLoading(new File(templatesPath));
         config.setDefaultEncoding("UTF-8");
@@ -35,4 +35,5 @@ public class DynamicPage {
         writer.close();
 
     }
+
 }
